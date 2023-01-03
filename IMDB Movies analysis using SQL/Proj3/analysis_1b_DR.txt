@@ -1,0 +1,89 @@
+SQL> set timing on
+SQL> 
+SQL> --Query to count total number of movies in comedy from 1952-1962 from actress Debbie Reynolds:
+SQL> 
+SQL> SELECT COUNT(TB.startyear) AS first_period
+  2  FROM imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE TP.tconst = TB.tconst AND
+  4          TP.nconst = 'nm0001666' AND
+  5          LOWER(TP.category) IN ('actress') and TB.startyear NOT LIKE '\N' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          TB.genres like '%Comedy%' AND
+  8          TB.startyear between '1952' and '1962';
+
+FIRST_PERIOD
+----------------------------------------------------------------------------------------------------------------------------
+          19
+
+Elapsed: 00:00:01.737
+SQL> 
+SQL> --Query to count total number of movies in comedy from 1963-1973 from actress Debbie Reynolds:
+SQL> 
+SQL> SELECT COUNT(TB.startyear) AS second_period
+  2  FROM imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE TP.tconst = TB.tconst AND
+  4          TP.nconst = 'nm0001666' AND
+  5          LOWER(TP.category) IN ('actress') and TB.startyear NOT LIKE '\N' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          TB.genres like '%Comedy%' AND
+  8          TB.startyear between '1963' and '1973';
+
+SECOND_PERIOD
+----------------------------------------------------------------------------------------------------------------------------
+            6
+
+Elapsed: 00:00:01.622
+SQL> 
+SQL> --Query to count total number of movies in comedy from 1974-1984 from actress Debbbie Reynolds:
+SQL> 
+SQL> SELECT COUNT(TB.startyear) AS third_period
+  2  FROM imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE TP.tconst = TB.tconst AND
+  4          TP.nconst = 'nm0001666' AND
+  5          LOWER(TP.category) IN ('actress') and TB.startyear NOT LIKE '\N' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          TB.genres like '%Comedy%' AND
+  8          TB.startyear between '1974' and '1984';
+
+THIRD_PERIOD
+----------------------------------------------------------------------------------------------------------------------------
+           0
+
+Elapsed: 00:00:01.606
+SQL> 
+SQL> --Query to count total number of movies in comedy from 1985-1995 from actress Debbie Reynolds:
+SQL> 
+SQL> SELECT COUNT(TB.startyear) AS fourth_period
+  2  FROM imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE TP.tconst = TB.tconst AND
+  4          TP.nconst = 'nm0001666' AND
+  5          LOWER(TP.category) IN ('actress') and TB.startyear NOT LIKE '\N' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          TB.genres like '%Comedy%' AND
+  8          TB.startyear between '1985' and '1995';
+
+FOURTH_PERIOD
+----------------------------------------------------------------------------------------------------------------------------
+            0
+
+Elapsed: 00:00:01.621
+SQL> 
+SQL> --Query to count total number of movies in comedy from 1996-2008 from actress Debbie Reynolds:
+SQL> 
+SQL> SELECT COUNT(TB.startyear) AS fourth_period
+  2  FROM imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE TP.tconst = TB.tconst AND
+  4          TP.nconst = 'nm0001666' AND
+  5          LOWER(TP.category) IN ('actress') and TB.startyear NOT LIKE '\N' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          TB.genres like '%Comedy%' AND
+  8          TB.startyear between '1996' and '2008';
+
+FOURTH_PERIOD
+----------------------------------------------------------------------------------------------------------------------------
+            2
+
+Elapsed: 00:00:01.620
+SQL> 
+SQL> set timing off
+SQL> set echo off

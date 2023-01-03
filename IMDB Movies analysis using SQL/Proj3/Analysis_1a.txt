@@ -1,0 +1,217 @@
+SQL> set timing on
+SQL> 
+SQL> column column_name format a15
+SQL> set linesize 200
+SQL> set underline =
+SP2-0158: unknown SET option "underline"
+SQL> 
+SQL> --Queries to get span of acting career in years, and the total number of movies in each year of actor Tom Hanks:
+SQL> 
+SQL> SELECT NB.primaryname||','||TB.startyear||','||COUNT(*)
+  2  FROM imdb00.name_basics NB, imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE NB.nconst = TP.nconst AND
+  4          TP.tconst = TB.tconst AND
+  5          NB.nconst = 'nm0000158' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          LOWER(TP.category) IN ('actor') and TB.startyear NOT LIKE '\N'
+  8  GROUP BY NB.nconst, NB.primaryname, TB.startyear
+  9  ORDER BY startyear ASC;
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tom Hanks,1983,1
+Tom Hanks,1984,1
+Tom Hanks,1985,2
+Tom Hanks,1986,3
+Tom Hanks,1987,1
+Tom Hanks,1988,2
+Tom Hanks,1989,2
+Tom Hanks,1990,2
+Tom Hanks,1992,1
+Tom Hanks,1993,2
+Tom Hanks,1994,1
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tom Hanks,1995,2
+Tom Hanks,1996,1
+Tom Hanks,1998,2
+Tom Hanks,1999,2
+Tom Hanks,2000,1
+Tom Hanks,2002,2
+Tom Hanks,2004,3
+Tom Hanks,2006,1
+Tom Hanks,2007,1
+Tom Hanks,2008,1
+Tom Hanks,2009,1
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tom Hanks,2010,1
+Tom Hanks,2011,2
+Tom Hanks,2012,1
+Tom Hanks,2013,2
+Tom Hanks,2015,1
+Tom Hanks,2016,4
+Tom Hanks,2017,2
+Tom Hanks,2019,2
+Tom Hanks,2020,2
+Tom Hanks,2021,2
+Tom Hanks,2022,4
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tom Hanks,2023,1
+
+34 rows selected. 
+
+Elapsed: 00:00:01.600
+SQL> 
+SQL> --Queries to get span of acting career in years, and the total number of movies in each year of actor Keanu Reeves:
+SQL> 
+SQL> SELECT NB.primaryname||','||TB.startyear||','||COUNT(*)
+  2  FROM imdb00.name_basics NB, imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE NB.nconst = TP.nconst AND
+  4          TP.tconst = TB.tconst AND
+  5          NB.nconst = 'nm0000206' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          LOWER(TP.category) IN ('actor') and TB.startyear NOT LIKE '\N'
+  8  GROUP BY NB.nconst, NB.primaryname, TB.startyear
+  9  ORDER BY startyear ASC;
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keanu Reeves,1986,2
+Keanu Reeves,1988,3
+Keanu Reeves,1989,1
+Keanu Reeves,1990,1
+Keanu Reeves,1991,3
+Keanu Reeves,1992,1
+Keanu Reeves,1993,2
+Keanu Reeves,1994,1
+Keanu Reeves,1995,2
+Keanu Reeves,1996,2
+Keanu Reeves,1997,2
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keanu Reeves,1999,1
+Keanu Reeves,2000,3
+Keanu Reeves,2001,2
+Keanu Reeves,2003,3
+Keanu Reeves,2005,2
+Keanu Reeves,2006,3
+Keanu Reeves,2008,2
+Keanu Reeves,2010,1
+Keanu Reeves,2012,1
+Keanu Reeves,2013,2
+Keanu Reeves,2014,1
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keanu Reeves,2015,1
+Keanu Reeves,2016,4
+Keanu Reeves,2017,2
+Keanu Reeves,2018,3
+Keanu Reeves,2019,1
+Keanu Reeves,2020,1
+Keanu Reeves,2021,1
+Keanu Reeves,2023,1
+
+30 rows selected. 
+
+Elapsed: 00:00:01.608
+SQL> 
+SQL> --Queries to get span of acting career in years, and the total number of movies in each year of actress Demi Moore
+SQL> 
+SQL> SELECT NB.primaryname||','||TB.startyear||','||COUNT(*)
+  2  FROM imdb00.name_basics NB, imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE NB.nconst = TP.nconst AND
+  4          TP.tconst = TB.tconst AND
+  5          NB.nconst = 'nm0000193' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          LOWER(TP.category) IN ('actress') and TB.startyear NOT LIKE '\N'
+  8  GROUP BY NB.nconst, NB.primaryname, TB.startyear
+  9  ORDER BY startyear ASC;
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Demi Moore,1982,1
+Demi Moore,1984,2
+Demi Moore,1985,1
+Demi Moore,1986,3
+Demi Moore,1988,1
+Demi Moore,1989,1
+Demi Moore,1990,1
+Demi Moore,1991,3
+Demi Moore,1992,1
+Demi Moore,1993,1
+Demi Moore,1994,1
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Demi Moore,1995,2
+Demi Moore,1996,4
+Demi Moore,1997,1
+Demi Moore,2000,1
+Demi Moore,2006,2
+Demi Moore,2007,2
+Demi Moore,2009,2
+Demi Moore,2010,1
+Demi Moore,2011,1
+Demi Moore,2012,1
+Demi Moore,2016,2
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Demi Moore,2019,1
+Demi Moore,2022,1
+
+24 rows selected. 
+
+Elapsed: 00:00:01.613
+SQL> 
+SQL> --Queries to get span of acting career in years, and the total number of movies in each year of actress Debbie Reynolds:
+SQL> 
+SQL> SELECT NB.primaryname||','||TB.startyear||','||COUNT(*)
+  2  FROM imdb00.name_basics NB, imdb00.title_principals TP, imdb00.title_basics TB
+  3  WHERE NB.nconst = TP.nconst AND
+  4          TP.tconst = TB.tconst AND
+  5          NB.nconst = 'nm0001666' AND
+  6          LOWER(TB.titletype) = 'movie' AND
+  7          LOWER(TP.category) IN ('actress') and TB.startyear NOT LIKE '\N'
+  8  GROUP BY NB.nconst, NB.primaryname, TB.startyear
+  9  ORDER BY startyear ASC;
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Debbie Reynolds,1952,1
+Debbie Reynolds,1953,3
+Debbie Reynolds,1954,2
+Debbie Reynolds,1955,2
+Debbie Reynolds,1956,2
+Debbie Reynolds,1957,1
+Debbie Reynolds,1958,1
+Debbie Reynolds,1959,4
+Debbie Reynolds,1960,1
+Debbie Reynolds,1961,2
+Debbie Reynolds,1963,2
+
+NB.PRIMARYNAME||','||TB.STARTYEAR||','||COUNT(*)                                                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Debbie Reynolds,1964,2
+Debbie Reynolds,1966,1
+Debbie Reynolds,1967,1
+Debbie Reynolds,1968,1
+Debbie Reynolds,1971,1
+Debbie Reynolds,1973,1
+Debbie Reynolds,1996,1
+Debbie Reynolds,1998,2
+Debbie Reynolds,2008,1
+
+20 rows selected. 
+
+Elapsed: 00:00:01.681
+SQL> 
+SQL> set timing off
+SQL> set echo off
